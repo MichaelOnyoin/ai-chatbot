@@ -22,6 +22,7 @@ import { createDocument } from '@/lib/ai/tools/create-document';
 import { updateDocument } from '@/lib/ai/tools/update-document';
 import { requestSuggestions } from '@/lib/ai/tools/request-suggestions';
 import { getWeather } from '@/lib/ai/tools/get-weather';
+import { searchInternet } from '@/lib/ai/tools/search-web';
 import { isProductionEnvironment } from '@/lib/constants';
 import { NextResponse } from 'next/server';
 import { myProvider } from '@/lib/ai/providers';
@@ -85,6 +86,7 @@ export async function POST(request: Request) {
                   'createDocument',
                   'updateDocument',
                   'requestSuggestions',
+                  'searchInternet',
                 ],
           experimental_transform: smoothStream({ chunking: 'word' }),
           experimental_generateMessageId: generateUUID,
@@ -96,6 +98,7 @@ export async function POST(request: Request) {
               session,
               dataStream,
             }),
+            searchInternet,
           },
           onFinish: async ({ response, reasoning }) => {
             if (session.user?.id) {
