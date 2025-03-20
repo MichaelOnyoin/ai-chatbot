@@ -32,6 +32,11 @@ export const chatModels: Array<ChatModel> = [
     description: 'Small model for fast, lightweight tasks',
   },
   {
+    id: 'gpt-35-turbo-16k',
+    name: 'Gpt-3.5-turbo 16k',
+    description: 'Small model for fast, lightweight tasks',
+  },
+  {
     id: 'gpt-4o-mini',
     name: 'Gpt-4o-mini',
     description: 'Large model for complex, multi-step tasks',

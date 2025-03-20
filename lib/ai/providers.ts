@@ -58,6 +58,7 @@ export const myProvider = isTestEnvironment
   ? customProvider({
       languageModels: {
         'gpt-35-turbo': chatModel,
+        'gpt-35-turbo-16k': chatModel,
         'gpt-4o-mini': chatModel,
         'chat-model-reasoning': reasoningModel,
         'title-model': titleModel,
@@ -67,6 +68,7 @@ export const myProvider = isTestEnvironment
   : customProvider({
       languageModels: {
         'gpt-35-turbo': azure('gpt-35-turbo'),
+        'gpt-35-turbo-16k': azure('gpt-35-turbo-16k'),
         'gpt-4o-mini': azure('gpt-4o-mini'),
         'chat-model-reasoning': wrapLanguageModel({
           model: fireworks('accounts/fireworks/models/deepseek-r1'),
@@ -76,7 +78,7 @@ export const myProvider = isTestEnvironment
         'artifact-model': azure('gpt-4o-mini'),
       },
       imageModels: {
-        'small-model': azure.imageModel('dall-e-2'),
-        'large-model': openai.image('dall-e-3'),
+        'small-model': azure.imageModel('dall-e-3'),
+        //'large-model': openai.image('dall-e-3'),
       },
     });
